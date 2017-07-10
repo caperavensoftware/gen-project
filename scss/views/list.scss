@@ -1,0 +1,29 @@
+@import './../../jspm_packages/npm/pragma-views@0.0.54/scss/lib/variables.scss';
+@import './../../jspm_packages/npm/pragma-views@0.0.54/scss/lib/mixins.scss';
+@import './../../jspm_packages/npm/pragma-views@0.0.54/scss/lib/colors.scss';
+
+.toolbar {
+  icon {
+    margin-top: 0.4rem;
+  }
+
+  input {
+    @include stretch();
+    margin-left: $default-padding;
+    margin-right: $default-padding;
+  }
+
+  ul {
+    margin: $default-padding;
+  }
+}
+
+.card[aria-selected="true"]:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0.25rem;
+  background: $primary-highlight;
+}
