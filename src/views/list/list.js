@@ -1,4 +1,4 @@
-import {bindable, inject} from "aurelia-framework";
+import {bindable} from "aurelia-framework";
 import {toolbarItems} from './toolbar-items';
 import {SearchFilter} from 'pragma-views/lib/search-filter';
 
@@ -51,8 +51,6 @@ export class List {
     }
 
     searchTextChanged(newValue, oldValue) {
-        console.log(oldValue);
-
         if ((oldValue || '').length == 0) {
             this.itemsBackup = this.items.slice(0);
         }

@@ -1,8 +1,12 @@
-@import './../../jspm_packages/npm/pragma-views@0.0.54/scss/lib/variables.scss';
-@import './../../jspm_packages/npm/pragma-views@0.0.54/scss/lib/mixins.scss';
-@import './../../jspm_packages/npm/pragma-views@0.0.54/scss/lib/colors.scss';
+@import './../../jspm_packages/npm/pragma-views@0.0.58/scss/lib/variables.scss';
+@import './../../jspm_packages/npm/pragma-views@0.0.58/scss/lib/mixins.scss';
+@import './../../jspm_packages/npm/pragma-views@0.0.58/scss/lib/colors.scss';
 
 .toolbar {
+  icon[name="search"] {
+    opacity: 0.5;
+  }
+
   icon {
     margin-top: 0.4rem;
   }
@@ -18,12 +22,10 @@
   }
 }
 
-.card[aria-selected="true"]:before {
-  content: "";
+ul[role="list"] {
   position: absolute;
+  top: $options-toolbar-height;
   left: 0;
-  top: 0;
+  right: 0;
   bottom: 0;
-  width: 0.25rem;
-  background: $primary-highlight;
 }
