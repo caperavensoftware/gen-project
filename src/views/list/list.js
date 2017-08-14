@@ -1,7 +1,9 @@
-import {bindable} from "aurelia-framework";
+import {bindable, inject} from "aurelia-framework";
 import {toolbarItems} from './toolbar-items';
 import {SearchFilter} from 'pragma-views/lib/search-filter';
+import {setSelectedItems, updateSelected} from './list-helper';
 
+@inject(Element)
 export class List {
     itemsBackup;
 
@@ -11,12 +13,14 @@ export class List {
     @bindable selectedId;
     @bindable searchText;
 
-    constructor() {
+    constructor(element) {
+        this.element = element;
     }
 
     attached() {
         this.toolbarItems = toolbarItems;
         this.fetchItems();
+        this.listElement = this.element.querySelector('ul');
     }
 
     detached() {
@@ -47,7 +51,10 @@ export class List {
     }
 
     selectedIdChanged(newValue) {
-        console.log(newValue);
+        setSelectedItems(this.items, newValue);
+
+        console.log(this.items);
+        console.log(this.itemsBackup);
     }
 
     searchTextChanged(newValue, oldValue) {
